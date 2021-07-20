@@ -1,0 +1,73 @@
+.addcity-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.addcity-top input {
+    width: 30%;
+    margin-right: 10px;
+}
+
+.addcity-clear {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addcity-nothing {
+    display: flex;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.addcity-cities {
+    border-top: 2px solid #000;
+}
+
+.addcity-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.addcity-button {
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.addcity-button:hover {
+    color: #fff;
+}
+
+.addcity-top {
+    display: flex;
+    align-items: center;
+}
+
+.addcity-delete {
+    margin: 0 10px;
+}
+
+.addcity-favorite {
+    margin: 20px 0;
+}
+
+.addcity-fav-list {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.addcity-fav-item {
+    width: 350px;
+    margin: 0 20px;
+}

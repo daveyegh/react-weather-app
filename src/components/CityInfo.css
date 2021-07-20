@@ -1,0 +1,68 @@
+.cityinfo__container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cityinfo__top {
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cityinfo__forecast {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 45px;
+}
+
+.cityinfo__forecast-item {
+  width: 30%;
+}
+
+.cityinfo__forecast-title {
+  display: flex;
+  align-items: center;
+}
+
+.cityinfo__forecast-img {
+  width: 30%;
+}
+
+.modal-dialog {
+  max-width: 700px;
+}
+
+.modal__subtitle {
+  font-size: 20px;
+}
+
+.modal__hours {
+  display: flex;
+  justify-content: space-between;
+  overflow: scroll;
+  overflow-y: hidden;
+}
+
+.modal__hour {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+
+.cityinfo__map {
+  padding: 50px 0;
+}
+
+.map {
+  height: 600px;
+}
+
+.leaflet-container {
+  height: 600px;
+}
