@@ -11,13 +11,13 @@ function AddCity() {
   const [favoriteList, setfavoriteList] = useState([]);
 
   useEffect(() => {
-    let localStorageItems = JSON.parse(localStorage.getItem("cities"));
-    setCityList(localStorageItems);
+    let localStorageItems = JSON.parse(localStorage.getItem("favCities"));
+    setfavoriteList(localStorageItems);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("cities", JSON.stringify(cityList));
-  }, [cityList]);
+    localStorage.setItem("favCities", JSON.stringify(favoriteList));
+  }, [favoriteList]);
 
   const handleAdd = async (cityName) => {
     const result = await axios.get(
@@ -44,10 +44,24 @@ function AddCity() {
   };
 
   const addFavorite = (item) => {
-    setfavoriteList([...favoriteList, item]);
-    favoriteList.some((city, index) => {
-      return city.id != item.id;
-    });
+    console.log(
+      favoriteList.some((el) => {
+        return el.id !== item.id;
+      })
+    );
+    if (
+      favoriteList.length <= 0 ||
+      favoriteList.some((el) => {
+        return el.id !== item.id;
+      })
+    ) {
+      setfavoriteList([...favoriteList, item]);
+      console.log("asdsd");
+    }
+  };
+
+  const handleFavoriteDelete = (item) => {
+    setfavoriteList(favoriteList.filter((city) => city.id !== item.id));
   };
 
   return (
@@ -85,19 +99,10 @@ function AddCity() {
                     color="danger"
                     className="addcity-delete"
                     onClick={() => {
-                      handleDelete(cityList[index]);
+                      handleFavoriteDelete(favoriteList[index]);
                     }}
                   >
                     delete
-                  </Button>
-                  <Button
-                    onClick={() => {
-                      addFavorite(item);
-                    }}
-                    className="addcity-favorite"
-                    color="info"
-                  >
-                    &#9829;
                   </Button>
                 </div>
                 <div className="addcity-content">

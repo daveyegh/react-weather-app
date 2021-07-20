@@ -66,3 +66,14 @@
 .leaflet-container {
   height: 600px;
 }
+
+.cityinfo__forecast-hours {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.cityinfo__forecast-hour {
+  margin: 0 10px;
+}

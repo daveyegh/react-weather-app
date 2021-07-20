@@ -8,6 +8,7 @@ import {
   CardTitle,
   CardSubtitle,
   Button,
+  Collapse,
 } from "reactstrap";
 
 import "./CityInfo.css";
@@ -15,7 +16,7 @@ import "leaflet/dist/leaflet.css";
 
 function CityInfo({ match }) {
   const [weather, setWeather] = useState({});
-  const [position, setPosition] = useState([0, 0]);
+  const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
     let cityName = match.params.name.toLowerCase();
@@ -29,7 +30,6 @@ function CityInfo({ match }) {
         `);
     const forecastInfo = await result.data;
     setWeather(forecastInfo);
-    setPosition([forecastInfo?.location?.lat, forecastInfo?.location?.lon]);
     console.log(forecastInfo);
     console.log([forecastInfo?.location?.lat, forecastInfo?.location?.lon]);
   };
@@ -43,6 +43,8 @@ function CityInfo({ match }) {
       hours.getMinutes();
     return formatedHours;
   };
+
+  const toggle = () => setOpen(!isOpen);
 
   return (
     <>
@@ -78,12 +80,32 @@ function CityInfo({ match }) {
                             {item.day.condition.text}
                           </CardSubtitle>
                           <CardText>
-                            <p>Max temperature: {item.day.maxtemp_c}</p>
-                            <p>Min temperature: {item.day.mintemp_c}</p>
+                            <p>Max temperature: {item.day.maxtemp_c}℃</p>
+                            <p>Min temperature: {item.day.mintemp_c}℃</p>
                             <p>Sunrise: {item.astro.sunrise}</p>
                             <p>Sunset: {item.astro.sunset}</p>
                           </CardText>
-                          <Button>More Info</Button>
+                          <Button
+                            onClick={() => {
+                              toggle();
+                            }}
+                          >
+                            More Info
+                          </Button>
+                          <Collapse isOpen={isOpen}>
+                            <div className="cityinfo__forecast-hours">
+                              {item?.hour.map((hour) => {
+                                return <div className="cityinfo__forecast-hour">
+                                  <img src={hour?.condition?.icon} className="cityinfo__forecast-img" alt="" />
+                                  <h5 className="cityinfo__forecast-title">
+                                    {formatHours(hour?.time)}
+                                  </h5>
+                                  <p>{hour?.temp_c}℃</p>
+
+                                </div>;
+                              })}
+                            </div>
+                          </Collapse>
                         </CardBody>
                       </Card>
                     </div>

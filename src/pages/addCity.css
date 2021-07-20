@@ -69,5 +69,9 @@
 
 .addcity-fav-item {
     width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin: 0 20px;
 }
