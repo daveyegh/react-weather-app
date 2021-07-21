@@ -5,7 +5,7 @@ import Weather from "./components/Weather";
 import CityInfo from "./components/CityInfo";
 import Navigation from "./components/Header";
 import HomePage from "./pages/HomePage";
-import AddCity from "./pages/addCity";
+import AddCity from "./pages/AddCity";
 
 function App() {
   return (
