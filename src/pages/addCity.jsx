@@ -90,7 +90,7 @@ function AddCity() {
       <div className="addcity-favorite">
         <h3 className="addcity-favorite-title">Favorite Countries</h3>
         <div className="addcity-fav-list">
-          {favoriteList.map((item, index) => {
+          {favoriteList.length > 0 && favoriteList.map((item, index) => {
             return (
               <div className="addcity-fav-item" key={item.id}>
                 <div className="addcity-top">
